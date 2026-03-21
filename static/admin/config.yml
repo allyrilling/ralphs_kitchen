@@ -1,13 +1,6 @@
-# NOTE: Auth requires a backend proxy.
-# Option A: Deploy via Netlify and enable Netlify Identity.
-# Option B: Use a GitHub OAuth proxy (e.g. https://github.com/vencax/netlify-cms-github-oauth-provider)
-# Then set base_url below to your proxy URL.
-
 backend:
-  name: github
-  repo: allyrilling/ralphs_kitchen
+  name: git-gateway
   branch: main
-  # base_url: https://your-oauth-proxy.example.com   # uncomment when auth is configured
 
 media_folder: "content/posts"
 public_folder: "/posts"
