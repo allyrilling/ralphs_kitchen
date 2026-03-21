@@ -1,0 +1,59 @@
+{{ define "main" }}
+<div class="page-header">
+  <h1 class="page-title">
+    {{- if .IsHome -}}
+      Posts
+    {{- else if eq .Kind "taxonomy" -}}
+      Tags
+    {{- else if eq .Kind "term" -}}
+      #{{ .Title }}
+    {{- else -}}
+      {{ .Title }}
+    {{- end -}}
+  </h1>
+  {{ with .Params.description }}<p class="page-description">{{ . }}</p>{{ end }}
+</div>
+
+{{- if eq .Kind "taxonomy" -}}
+  <!-- Tag cloud -->
+  <ul class="taxonomy-list">
+    {{ range .Data.Terms.Alphabetical }}
+    <li class="taxonomy-item">
+      <a href="{{ .Page.RelPermalink }}">
+        {{ .Page.Title }}
+        <span class="taxonomy-count">{{ .Count }}</span>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+{{- else -}}
+  <!-- Post list -->
+  <ul class="post-list">
+    {{ range .Pages }}
+    <li class="post-item">
+      <h2 class="post-item-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h2>
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
+      </div>
+      {{ with .Params.description }}
+      <p class="post-summary">{{ . }}</p>
+      {{ else }}
+      <div class="post-summary">{{ .Summary }}</div>
+      {{ end }}
+      {{ with .Params.tags }}
+      <ul class="tag-list">
+        {{ range . }}
+        <li class="tag-item"><a href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </li>
+    {{ else }}
+    <li><p style="color:var(--text-muted);font-style:italic;">No posts found.</p></li>
+    {{ end }}
+  </ul>
+{{- end -}}
+{{ end }}

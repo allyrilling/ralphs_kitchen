@@ -1,0 +1,28 @@
+baseURL = "https://allyrilling.github.io/ralphs_kitchen/"
+languageCode = "en-us"
+title = "Ralph's Kitchen"
+
+[params]
+  description = "A personal blog."
+  author = "Ally"
+  imageBase = ""
+
+[taxonomies]
+  tag = "tags"
+
+[outputs]
+  home    = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  page    = ["HTML"]
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    style     = "dracula"
+    lineNos   = false
+    codeFences = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel   = 3
+    ordered    = false
