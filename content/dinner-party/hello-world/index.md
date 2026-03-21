@@ -2,7 +2,6 @@
 title: "Hello, World"
 date: 2026-03-20
 description: "The first post. Welcome to Ralph's Kitchen."
-tags: ["welcome", "meta"]
 ---
 
 Welcome to Ralph's Kitchen — a place for writing about food, cooking, and whatever else deserves a longer thought than a tweet.

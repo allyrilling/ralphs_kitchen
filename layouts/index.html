@@ -4,33 +4,39 @@
   <p>{{ .Site.Params.description }}</p>
 </div>
 
-<p class="section-title">Recent Posts</p>
-
-<ul class="post-list">
-  {{ range (where .Site.RegularPages "Type" "posts") | first 10 }}
-  <li class="post-item">
-    <h2 class="post-item-title">
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </h2>
-    <div class="post-meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-      {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
-    </div>
-    {{ with .Params.description }}
-    <p class="post-summary">{{ . }}</p>
-    {{ else }}
-    <div class="post-summary">{{ .Summary }}</div>
-    {{ end }}
-    {{ with .Params.tags }}
-    <ul class="tag-list">
-      {{ range . }}
-      <li class="tag-item"><a href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+<div class="home-sections">
+  {{ $sections := slice (dict "slug" "dinner-party" "label" "Dinner Party") (dict "slug" "out-on-the-town" "label" "Out on the Town") }}
+  {{ range $sections }}
+    {{ $slug := .slug }}
+    {{ $label := .label }}
+    {{ $posts := where $.Site.RegularPages "Section" $slug }}
+    {{ $latest := first 1 $posts }}
+    <div class="home-section">
+      <div class="home-section-header">
+        <p class="section-title">{{ $label }}</p>
+        {{ with site.GetPage $slug }}<a href="{{ .RelPermalink }}" class="section-all-link">All posts →</a>{{ end }}
+      </div>
+      {{ range $latest }}
+      <ul class="post-list">
+        <li class="post-item">
+          <h2 class="post-item-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h2>
+          <div class="post-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
+          </div>
+          {{ with .Params.description }}
+          <p class="post-summary">{{ . }}</p>
+          {{ else }}
+          <div class="post-summary">{{ .Summary }}</div>
+          {{ end }}
+        </li>
+      </ul>
+      {{ else }}
+      <p class="no-posts">No posts yet. Check back soon.</p>
       {{ end }}
-    </ul>
-    {{ end }}
-  </li>
-  {{ else }}
-  <li><p style="color:var(--text-muted);font-style:italic;">No posts yet. Check back soon.</p></li>
+    </div>
   {{ end }}
-</ul>
+</div>
 {{ end }}

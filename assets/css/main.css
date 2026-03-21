@@ -644,6 +644,38 @@ pre code {
   margin-bottom: var(--space-lg);
 }
 
+.home-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.home-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.home-section-header .section-title {
+  margin-bottom: 0;
+}
+
+.section-all-link {
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.home-section .post-list {
+  max-width: none;
+}
+
+.no-posts {
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: var(--space-lg);
+}
+
 /* =====================================================
    Image zoom (medium-zoom)
    ===================================================== */
@@ -674,6 +706,8 @@ pre code {
   .site-header { padding: var(--space-md) 0; margin-bottom: var(--space-lg); }
   .site-wrapper { padding: 0 var(--space-md); }
   .site-nav { gap: var(--space-md); }
+
+  .home-sections { grid-template-columns: 1fr; }
 
   h1, .post-title { font-size: 1.6rem; }
   h2 { font-size: 1.25rem; }

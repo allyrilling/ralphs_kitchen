@@ -3,10 +3,10 @@
     <a href="{{ .Site.BaseURL }}" class="site-title">{{ .Site.Title }}</a>
     <nav aria-label="Main navigation">
       <ul class="site-nav">
-        <li><a href="{{ "/posts/" | relURL }}">Posts</a></li>
-        <li><a href="{{ "/tags/" | relURL }}">Tags</a></li>
-        <li><a href="{{ "/search/" | relURL }}">Search</a></li>
-        <li><a href="{{ "/about/" | relURL }}">About Ralph</a></li>
+        {{ with site.GetPage "/dinner-party" }}<li><a href="{{ .RelPermalink }}">Dinner Party</a></li>{{ end }}
+        {{ with site.GetPage "/out-on-the-town" }}<li><a href="{{ .RelPermalink }}">Out on the Town</a></li>{{ end }}
+        {{ with site.GetPage "/search" }}<li><a href="{{ .RelPermalink }}">Search</a></li>{{ end }}
+        {{ with site.GetPage "/about" }}<li><a href="{{ .RelPermalink }}">About Ralph</a></li>{{ end }}
         <li>
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
             <span id="theme-icon">◑</span>

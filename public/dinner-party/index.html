@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head><script src="/ralphs_kitchen/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ralphs_kitchen/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Dinner Party — Ralph&#39;s Kitchen</title><meta name="description" content="Cooking at home, recipes, and everything that happens in the kitchen.">
+<meta name="author" content="Ally">
+
+
+<link rel="canonical" href="http://localhost:1313/ralphs_kitchen/dinner-party/">
+
+
+<meta property="og:title" content="Dinner Party — Ralph&#39;s Kitchen">
+<meta property="og:description" content="Cooking at home, recipes, and everything that happens in the kitchen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/ralphs_kitchen/dinner-party/">
+<meta property="og:site_name" content="Ralph&#39;s Kitchen">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dinner Party — Ralph&#39;s Kitchen">
+<meta name="twitter:description" content="Cooking at home, recipes, and everything that happens in the kitchen.">
+
+
+<link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/ralphs_kitchen/dinner-party/index.xml" title="Ralph&#39;s Kitchen">
+
+<script>
+  (function() {
+    var t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+
+<link rel="stylesheet" href="/ralphs_kitchen/css/main.min.9f7085dfc529bb3b11ad5cacc4a3f4f4ee9fa8de32a9011de906cee87988ad24.css" integrity="sha256-n3CF38UpuzsRrVysxKP09O6fqN4yqQEd6QbO6HmIrSQ=">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on('init', function(user) {
+      if (!user) {
+        window.netlifyIdentity.on('login', function() {
+          document.location.href = '/admin/';
+        });
+      }
+    });
+  }
+</script>
+
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍴</text></svg>">
+</head>
+<body><header class="site-header">
+  <div class="site-wrapper">
+    <a href="http://localhost:1313/ralphs_kitchen/" class="site-title">Ralph&#39;s Kitchen</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav">
+        <li><a href="/ralphs_kitchen/dinner-party/">Dinner Party</a></li>
+        <li><a href="/ralphs_kitchen/out-on-the-town/">Out on the Town</a></li>
+        <li><a href="/ralphs_kitchen/search/">Search</a></li>
+        <li><a href="/ralphs_kitchen/about/">About Ralph</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <span id="theme-icon">◑</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    var icon = document.getElementById('theme-icon');
+    var current = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    function setTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      icon.textContent = t === 'dark' ? '○' : '●';
+    }
+
+    setTheme(current);
+
+    btn.addEventListener('click', function() {
+      var t = document.documentElement.getAttribute('data-theme');
+      setTheme(t === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+<main id="main-content">
+    <div class="site-wrapper">
+<div class="page-header">
+  <h1 class="page-title">Dinner Party</h1>
+  <p class="page-description">Cooking at home, recipes, and everything that happens in the kitchen.</p>
+</div>
+
+<ul class="post-list">
+  
+  <li class="post-item">
+    <h2 class="post-item-title">
+      <a href="/ralphs_kitchen/dinner-party/what-we-cook/">What We Cook</a>
+    </h2>
+    <div class="post-meta">
+      <time datetime="2026-03-21">March 21, 2026</time>
+      <span>1 min read</span>
+    </div>
+    
+    <p class="post-summary">Recipes, techniques, and the thinking behind what ends up on the table.</p>
+    
+  </li>
+  
+  <li class="post-item">
+    <h2 class="post-item-title">
+      <a href="/ralphs_kitchen/dinner-party/hello-world/">Hello, World</a>
+    </h2>
+    <div class="post-meta">
+      <time datetime="2026-03-20">March 20, 2026</time>
+      <span>1 min read</span>
+    </div>
+    
+    <p class="post-summary">The first post. Welcome to Ralph&#39;s Kitchen.</p>
+    
+  </li>
+  
+</ul>
+
+    </div>
+  </main><footer class="site-footer">
+  <div class="site-wrapper">
+    <span>© 2026 Ally</span>
+    <span>
+      <a href="/index.xml">RSS</a>
+    </span>
+  </div>
+</footer>
+<script>
+    
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</body>
+</html>

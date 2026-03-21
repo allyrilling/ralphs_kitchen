@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dinner Party on Ralph&#39;s Kitchen</title>
+    <link>http://localhost:1313/ralphs_kitchen/dinner-party/</link>
+    <description>Recent content in Dinner Party on Ralph&#39;s Kitchen</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/ralphs_kitchen/dinner-party/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What We Cook</title>
+      <link>http://localhost:1313/ralphs_kitchen/dinner-party/what-we-cook/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ralphs_kitchen/dinner-party/what-we-cook/</guid>
+      <description>&lt;p&gt;More soon.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello, World</title>
+      <link>http://localhost:1313/ralphs_kitchen/dinner-party/hello-world/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ralphs_kitchen/dinner-party/hello-world/</guid>
+      <description>&lt;p&gt;Welcome to Ralph&amp;rsquo;s Kitchen — a place for writing about food, cooking, and whatever else deserves a longer thought than a tweet.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-a-blog&#34;&gt;Why a blog?&lt;/h2&gt;&#xA;&lt;p&gt;Some things need space. A good stock takes hours. A good meal deserves reflection. A blog feels right.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-to-expect&#34;&gt;What to expect&lt;/h2&gt;&#xA;&lt;p&gt;Posts here will probably cover:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Recipes I&amp;rsquo;ve actually made and liked&lt;/li&gt;&#xA;&lt;li&gt;Techniques worth understanding&lt;/li&gt;&#xA;&lt;li&gt;The occasional digression into kitchen tools&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;No algorithms, no ads, no newsletter popups. Just writing.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,14 +1,12 @@
 baseURL = "https://allyrilling.github.io/ralphs_kitchen/"
 languageCode = "en-us"
 title = "Ralph's Kitchen"
+disableKinds = ["taxonomy", "term"]
 
 [params]
   description = "A personal blog."
   author = "Ally"
   imageBase = ""
-
-[taxonomies]
-  tag = "tags"
 
 [outputs]
   home    = ["HTML", "RSS", "JSON"]

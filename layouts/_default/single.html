@@ -18,17 +18,6 @@
   <div class="post-content">
     {{ .Content }}
   </div>
-
-  <footer class="post-footer">
-    {{ with .Params.tags }}
-    <p class="post-tags-label">Tagged:</p>
-    <ul class="tag-list">
-      {{ range . }}
-      <li class="tag-item"><a href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
-      {{ end }}
-    </ul>
-    {{ end }}
-  </footer>
 </article>
 
 <!-- medium-zoom for image lightbox -->
