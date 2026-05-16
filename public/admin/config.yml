@@ -2,8 +2,11 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: dgdmgrse0
+    upload_preset: ralphs kitchen
 
 collections:
   - name: "dinner-party"
@@ -11,8 +14,6 @@ collections:
     folder: "content/dinner-party"
     create: true
     path: "{{slug}}/index"
-    media_folder: ""
-    public_folder: ""
     fields:
       - { label: "Title",       name: "title",       widget: "string" }
       - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
@@ -24,8 +25,6 @@ collections:
     folder: "content/out-on-the-town"
     create: true
     path: "{{slug}}/index"
-    media_folder: ""
-    public_folder: ""
     fields:
       - { label: "Title",       name: "title",       widget: "string" }
       - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
