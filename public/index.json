@@ -1,13 +1,9 @@
 [{
+    "title":   "Welcome to Ralph's Kitchen",
+    "url":     "/ralphs_kitchen/dinner-party/hgjkhhj/",
+    "summary": "\n"
+  },{
     "title":   "Coming Soon",
     "url":     "/ralphs_kitchen/out-on-the-town/placeholder/",
     "summary": "Reviews, recommendations, and nights out worth remembering."
-  },{
-    "title":   "What We Cook",
-    "url":     "/ralphs_kitchen/dinner-party/what-we-cook/",
-    "summary": "Recipes, techniques, and the thinking behind what ends up on the table."
-  },{
-    "title":   "Hello, World",
-    "url":     "/ralphs_kitchen/dinner-party/hello-world/",
-    "summary": "The first post. Welcome to Ralph's Kitchen."
   }]
