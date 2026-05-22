@@ -1,8 +1,7 @@
 [build]
   publish = "public"
-  command = "tinacms build && hugo --minify --baseURL https://ralphskitchen.netlify.app/"
+  command = "hugo --minify --baseURL https://ralphskitchen.netlify.app/"
 
 [build.environment]
   HUGO_VERSION = "0.145.0"
   HUGO_ENVIRONMENT = "production"
-  NODE_VERSION = "18"
