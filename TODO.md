@@ -5,17 +5,19 @@ Goal: better mobile editing experience
 
 Steps:
 - [ ] Create TinaCloud account at tina.io and connect GitHub repo
-- [ ] Remove `static/admin/` (Decap config + index.html)
-- [ ] Run `npx @tinacms/cli init` in project root
-- [ ] Define collections in `tina/config.ts` (dinner-party, out-on-the-town) matching current Decap schema
-- [ ] Confirm Cloudinary image integration still works in Tina
+- [x] Remove `static/admin/` (Decap config + index.html)
+- [x] Created `package.json` + installed `@tinacms/cli`
+- [x] Define collections in `tina/config.ts` (dinner-party, out-on-the-town) matching current Decap schema
+- [ ] Add `TINA_PUBLIC_CLIENT_ID` and `TINA_TOKEN` env vars to Netlify (get from TinaCloud dashboard)
 - [ ] Test creating/editing a post from mobile
-- [ ] Update `netlify.toml` build command if needed for Tina build step
+- [x] Update `netlify.toml` build command for Tina (`tinacms build && hugo --minify`)
 
 Notes:
-- Existing markdown content files don't need to change
+- Existing markdown content files don't change
 - TinaCloud free tier: max 2 users
-- Local dev: run `tinacms dev` alongside `hugo server`
+- Local dev: `npm run dev` (runs `tinacms dev -c "hugo server"`)
+- Images: paste Cloudinary URLs directly in the body editor; no need for Decap's media widget
+- TinaCloud setup steps: go to tina.io → New Project → connect GitHub repo → copy Client ID + Token → add to Netlify env vars
 
 ---
 
