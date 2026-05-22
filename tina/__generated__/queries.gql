@@ -1,0 +1,109 @@
+query dinner_party($relativePath: String!) {
+  dinner_party(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Dinner_partyParts
+  }
+}
+
+query dinner_partyConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Dinner_partyFilter) {
+  dinner_partyConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Dinner_partyParts
+      }
+    }
+  }
+}
+
+query out_on_the_town($relativePath: String!) {
+  out_on_the_town(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Out_on_the_townParts
+  }
+}
+
+query out_on_the_townConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Out_on_the_townFilter) {
+  out_on_the_townConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Out_on_the_townParts
+      }
+    }
+  }
+}
