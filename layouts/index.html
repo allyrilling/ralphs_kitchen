@@ -1,9 +1,4 @@
 {{ define "main" }}
-<div class="home-intro">
-  <h1>{{ .Site.Title }}</h1>
-  <p>{{ .Site.Params.description }}</p>
-</div>
-
 <div class="home-sections">
   {{ $sections := slice (dict "slug" "dinner-party" "label" "Dinner Party") (dict "slug" "out-on-the-town" "label" "Out on the Town") }}
   {{ range $sections }}

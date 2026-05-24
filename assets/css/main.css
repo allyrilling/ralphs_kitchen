@@ -145,6 +145,7 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
 .site-title {
@@ -161,11 +162,19 @@ main {
   text-decoration: none;
 }
 
-.site-nav {
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.site-nav ul {
   display: flex;
   align-items: center;
   gap: var(--space-lg);
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .site-nav a {
@@ -180,23 +189,50 @@ main {
   color: var(--accent);
 }
 
-/* Dark mode toggle */
-.theme-toggle {
+
+/* Hamburger button — hidden on desktop */
+.menu-toggle {
+  display: none;
   background: none;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  color: var(--text-muted);
   cursor: pointer;
-  font-size: 0.85rem;
-  padding: var(--space-xs) var(--space-sm);
-  transition: color var(--transition), border-color var(--transition);
-  line-height: 1;
+  padding: 14px 12px;
+  line-height: 0;
+  transition: border-color var(--transition);
 }
 
-.theme-toggle:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+.menu-toggle:hover { border-color: var(--accent); }
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-muted);
+  border-radius: 1px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
+
+.menu-icon {
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.menu-icon::before { top: -5px; }
+.menu-icon::after  { top:  5px; }
+
+/* Animate to × when open */
+.menu-toggle.is-open .menu-icon { background: transparent; }
+.menu-toggle.is-open .menu-icon::before { transform: translateY(5px) rotate(45deg); }
+.menu-toggle.is-open .menu-icon::after  { transform: translateY(-5px) rotate(-45deg); }
 
 /* =====================================================
    Footer
@@ -700,18 +736,54 @@ pre code {
 /* =====================================================
    Responsive
    ===================================================== */
+
+/* Alpine hides the nav with x-show on mobile; override on desktop */
+@media (min-width: 601px) {
+  [x-cloak] { display: block !important; }
+  .site-nav  { display: block !important; }
+  .menu-toggle { display: none !important; }
+}
+
+[x-cloak] { display: none; }
+
 @media (max-width: 600px) {
   html { font-size: 16px; }
 
-  .site-header { padding: var(--space-md) 0; margin-bottom: var(--space-lg); }
   .site-wrapper { padding: 0 var(--space-md); }
-  .site-nav { gap: var(--space-md); }
+
+  .site-header {
+    padding: var(--space-md) 0;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Allow the nav panel to wrap below the title+buttons row */
+  .site-header .site-wrapper { flex-wrap: wrap; }
+
+  /* Show hamburger */
+  .menu-toggle { display: block; }
+
+  /* Nav panel: full width, stacked links */
+  .site-nav {
+    width: 100%;
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-md);
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .site-nav a { font-size: 1.05rem; }
 
   .home-sections { grid-template-columns: 1fr; }
 
-  h1, .post-title { font-size: 1.6rem; }
+  h1 { font-size: 1.6rem; }
   h2 { font-size: 1.25rem; }
 
   .post-title { font-size: 1.8rem; }
   .home-intro h1 { font-size: 1.8rem; }
+
+  .post-content img { margin: var(--space-md) auto; }
 }
