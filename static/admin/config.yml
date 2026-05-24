@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
+local_backend: true
+
 media_library:
   name: cloudinary
   config:
@@ -18,6 +20,7 @@ collections:
       - { label: "Title",       name: "title",       widget: "string" }
       - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Description", name: "description", widget: "string",   required: false }
+      - { label: "Cover Image", name: "image",       widget: "image",    required: false }
       - { label: "Body",        name: "body",        widget: "markdown" }
 
   - name: "out-on-the-town"
@@ -28,5 +31,7 @@ collections:
     fields:
       - { label: "Title",       name: "title",       widget: "string" }
       - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Location",    name: "location",    widget: "string",   hint: "e.g. Carmelina's, Boston MA" }
       - { label: "Description", name: "description", widget: "string",   required: false }
+      - { label: "Cover Image", name: "image",       widget: "image",    required: false }
       - { label: "Body",        name: "body",        widget: "markdown" }
