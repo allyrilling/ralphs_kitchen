@@ -150,7 +150,7 @@ main {
 
 .site-title {
   font-family: var(--font-body);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--heading);
@@ -271,7 +271,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-h1 { font-size: 2rem;   margin-bottom: var(--space-md); }
+h1 { font-size: 1.1rem;   margin-bottom: var(--space-md); }
 h2 { font-size: 1.5rem; margin-top: var(--space-xl); margin-bottom: var(--space-md); }
 h3 { font-size: 1.2rem; margin-top: var(--space-lg); margin-bottom: var(--space-sm); }
 h4 { font-size: 1rem;   margin-top: var(--space-lg); margin-bottom: var(--space-sm); }
@@ -354,7 +354,7 @@ pre code {
 }
 
 .page-title {
-  font-size: 2rem;
+  font-size: 1.1rem;
   margin-bottom: var(--space-sm);
 }
 
@@ -491,7 +491,7 @@ pre code {
 }
 
 .post-title {
-  font-size: 2.2rem;
+  font-size: 1.4rem;
   line-height: 1.2;
   margin-bottom: var(--space-md);
 }
@@ -698,7 +698,7 @@ pre code {
 }
 
 .home-welcome h2 {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   margin-top: 0;
   margin-bottom: var(--space-md);
 }
@@ -933,11 +933,11 @@ pre code {
   /* Shrink thumbnail on mobile */
   .post-row-img { flex: 0 0 80px; height: 80px; }
 
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.25rem; }
+  h1 { font-size: 1rem; }
+  h2 { font-size: 0.95rem; }
 
-  .post-title { font-size: 1.8rem; }
-  .home-intro h1 { font-size: 1.8rem; }
+  .site-title { font-size: 1.5rem; }
+  .post-title { font-size: 1.2rem; }
 
   .post-content img { margin: var(--space-md) auto; }
 }

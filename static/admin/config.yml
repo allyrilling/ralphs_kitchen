@@ -11,6 +11,16 @@ media_library:
     upload_preset: ralphs kitchen
 
 collections:
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "sections"
+        label: "Section Descriptions"
+        file: "data/sections.yaml"
+        fields:
+          - { label: "Dinner Party Description", name: "dinner-party", widget: "string" }
+          - { label: "Out on the Town Description", name: "out-on-the-town", widget: "string" }
+
   - name: "dinner-party"
     label: "Dinner Party"
     folder: "content/dinner-party"

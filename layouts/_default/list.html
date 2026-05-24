@@ -17,9 +17,11 @@
 {{ $usedGenres = $usedGenres | uniq }}
 {{ $usedCities = $usedCities | uniq }}
 
+{{ $desc := index .Site.Data.sections .Section }}
+
 <div class="page-header">
   <h1 class="page-title">{{ .Title }}</h1>
-  {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
+  {{ with $desc }}<p class="page-description">{{ . }}</p>{{ end }}
 </div>
 
 <div x-data="{ meal: '', genre: '', city: '' }">
