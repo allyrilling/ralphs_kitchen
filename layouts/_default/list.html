@@ -1,24 +1,27 @@
 {{ define "main" }}
 <div class="page-header">
   <h1 class="page-title">{{ .Title }}</h1>
-  {{ with .Params.description }}<p class="page-description">{{ . }}</p>{{ end }}
+  {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
 </div>
 
 <ul class="post-list">
   {{ range .Pages }}
   <li class="post-item">
-    <h2 class="post-item-title">
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </h2>
-    <div class="post-meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-      {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
-    </div>
-    {{ with .Params.description }}
-    <p class="post-summary">{{ . }}</p>
-    {{ else }}
-    <div class="post-summary">{{ .Summary }}</div>
-    {{ end }}
+    <a href="{{ .RelPermalink }}" class="post-row">
+      {{ with .Params.image }}
+      <div class="post-row-img" style="background-image: url('{{ . }}')"></div>
+      {{ else }}
+      <div class="post-row-img post-row-img--empty"></div>
+      {{ end }}
+      <div class="post-row-body">
+        <h2 class="post-item-title">{{ .Title }}</h2>
+        <div class="post-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
+        </div>
+        {{ with .Params.description }}<p class="post-summary">{{ . }}</p>{{ end }}
+      </div>
+    </a>
   </li>
   {{ else }}
   <li><p class="no-posts">No posts found.</p></li>

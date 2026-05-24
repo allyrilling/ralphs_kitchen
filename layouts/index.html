@@ -1,37 +1,41 @@
 {{ define "main" }}
+<div class="home-welcome">
+  <h2>Welcome to Ralph's Kitchen</h2>
+  <p>This is a personal record of the food that matters — dinners cooked at home for friends, restaurants worth going back to, and the occasional experiment that actually worked. Not a recipe site, not a review blog. Just an honest account of eating well.</p>
+</div>
+
 <div class="home-sections">
   {{ $sections := slice (dict "slug" "dinner-party" "label" "Dinner Party") (dict "slug" "out-on-the-town" "label" "Out on the Town") }}
   {{ range $sections }}
     {{ $slug := .slug }}
     {{ $label := .label }}
-    {{ $posts := where $.Site.RegularPages "Section" $slug }}
-    {{ $latest := first 1 $posts }}
+    {{ $posts := first 4 (where $.Site.RegularPages "Section" $slug) }}
     <div class="home-section">
       <div class="home-section-header">
         <p class="section-title">{{ $label }}</p>
         {{ with site.GetPage $slug }}<a href="{{ .RelPermalink }}" class="section-all-link">All posts →</a>{{ end }}
       </div>
-      {{ range $latest }}
-      <ul class="post-list">
-        <li class="post-item">
-          <h2 class="post-item-title">
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          </h2>
-          <div class="post-meta">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-            {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
-          </div>
-          {{ with .Params.description }}
-          <p class="post-summary">{{ . }}</p>
+      {{ if $posts }}
+      <div class="post-grid">
+        {{ range $posts }}
+        <a href="{{ .RelPermalink }}" class="post-card">
+          {{ with .Params.image }}
+          <div class="post-card-img" style="background-image: url('{{ . }}')"></div>
           {{ else }}
-          <div class="post-summary">{{ .Summary }}</div>
+          <div class="post-card-img post-card-img--empty"></div>
           {{ end }}
-        </li>
-      </ul>
+          <div class="post-card-body">
+            <h2 class="post-card-title">{{ .Title }}</h2>
+            <p class="post-card-meta">{{ .Date.Format "Jan 2, 2006" }}</p>
+          </div>
+        </a>
+        {{ end }}
+      </div>
       {{ else }}
       <p class="no-posts">No posts yet. Check back soon.</p>
       {{ end }}
     </div>
   {{ end }}
 </div>
+
 {{ end }}

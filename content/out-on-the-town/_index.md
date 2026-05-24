@@ -1,4 +1,4 @@
 ---
 title: "Out on the Town"
-description: "Restaurants, bars, and eating out."
+description: "Notes on restaurants, bars, and meals worth remembering."
 ---
