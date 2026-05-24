@@ -764,8 +764,22 @@ pre code {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-xs);
+  gap: 6px;
   margin-bottom: var(--space-lg);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.filter-prefix {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-right: 2px;
+  white-space: nowrap;
 }
 
 .filter-group {
@@ -775,9 +789,9 @@ pre code {
 .filter-group + .filter-group::before {
   content: '';
   width: 1px;
-  height: 1rem;
+  height: 0.8rem;
   background: var(--border);
-  margin: 0 var(--space-xs);
+  margin: 0 2px;
   align-self: center;
 }
 
@@ -790,9 +804,10 @@ pre code {
   color: var(--text-muted);
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-style: italic;
-  padding: 0.2em 0.75em;
+  padding: 0.1em 0.6em;
+  line-height: 1.6;
   transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 

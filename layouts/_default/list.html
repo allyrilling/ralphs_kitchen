@@ -27,6 +27,7 @@
   {{/* Filter bar — only render groups that have values */}}
   {{ if or $usedMeals $usedGenres $usedCities }}
   <div class="filter-bar">
+    <span class="filter-prefix">Filter:</span>
     {{ if $usedCities }}
     <div class="filter-group">
       <span class="filter-label">City</span>
