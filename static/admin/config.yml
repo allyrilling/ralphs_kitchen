@@ -21,6 +21,16 @@ collections:
       - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Description", name: "description", widget: "string",   required: false }
       - { label: "Cover Image", name: "image",       widget: "image",    required: false }
+      - label: "Meal Type"
+        name: "meal_type"
+        widget: "select"
+        required: false
+        options: ["Breakfast", "Brunch", "Lunch", "Snack", "Dinner", "Dessert", "Other"]
+      - label: "Food Genre"
+        name: "food_genre"
+        widget: "select"
+        required: false
+        options: ["American", "Cafe", "Italian", "Mexican", "Japanese", "Chinese", "Thai", "Indian", "French", "Mediterranean", "Greek", "Korean", "Vietnamese", "Spanish", "Middle Eastern", "Other"]
       - { label: "Body",        name: "body",        widget: "markdown" }
 
   - name: "out-on-the-town"
@@ -32,6 +42,17 @@ collections:
       - { label: "Title",       name: "title",       widget: "string" }
       - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Location",    name: "location",    widget: "string",   hint: "e.g. Carmelina's, Boston MA" }
+      - { label: "City",        name: "city",        widget: "string",   hint: "e.g. Boston, Chicago" }
       - { label: "Description", name: "description", widget: "string",   required: false }
       - { label: "Cover Image", name: "image",       widget: "image",    required: false }
+      - label: "Meal Type"
+        name: "meal_type"
+        widget: "select"
+        required: false
+        options: ["Breakfast", "Brunch", "Lunch", "Snack", "Dinner", "Dessert", "Other"]
+      - label: "Food Genre"
+        name: "food_genre"
+        widget: "select"
+        required: false
+        options: ["American", "Cafe", "Italian", "Mexican", "Japanese", "Chinese", "Thai", "Indian", "French", "Mediterranean", "Greek", "Korean", "Vietnamese", "Spanish", "Middle Eastern", "Other"]
       - { label: "Body",        name: "body",        widget: "markdown" }

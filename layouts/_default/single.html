@@ -7,6 +7,13 @@
       {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
       {{ with .Params.location }}<span class="post-location">📍 <em>{{ . }}</em></span>{{ end }}
     </div>
+    {{ if or .Params.meal_type .Params.food_genre .Params.city }}
+    <div class="post-tags">
+      {{ with .Params.city }}<span class="tag">{{ . }}</span>{{ end }}
+      {{ with .Params.meal_type }}<span class="tag">{{ . }}</span>{{ end }}
+      {{ with .Params.food_genre }}<span class="tag">{{ . }}</span>{{ end }}
+    </div>
+    {{ end }}
   </header>
 
   {{ if and .TableOfContents (gt (len .TableOfContents) 100) }}

@@ -757,6 +757,65 @@ pre code {
   margin: 0;
 }
 
+/* =====================================================
+   Filters
+   ===================================================== */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+.filter-group {
+  display: contents;
+}
+
+.filter-group + .filter-group::before {
+  content: '';
+  width: 1px;
+  height: 1rem;
+  background: var(--border);
+  margin: 0 var(--space-xs);
+  align-self: center;
+}
+
+.filter-label { display: none; }
+
+.filter-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-style: italic;
+  padding: 0.2em 0.75em;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.filter-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.filter-btn.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-style: normal;
+}
+
+/* Tags on post cards and single posts */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
 /* Thumbnail-left post row (list pages) */
 .post-row {
   display: flex;

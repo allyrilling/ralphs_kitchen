@@ -1,30 +1,93 @@
 {{ define "main" }}
+{{ $isOOT := eq .Section "out-on-the-town" }}
+
+{{ $mealTypes := slice "Breakfast" "Brunch" "Lunch" "Snack" "Dinner" "Dessert" "Other" }}
+{{ $genres    := slice "American" "Italian" "Mexican" "Japanese" "Chinese" "Thai" "Indian" "French" "Mediterranean" "Greek" "Korean" "Vietnamese" "Spanish" "Middle Eastern" "Other" }}
+
+{{/* Collect only values that exist in actual posts */}}
+{{ $usedMeals  := slice }}
+{{ $usedGenres := slice }}
+{{ $usedCities := slice }}
+{{ range .Pages }}
+  {{ with .Params.meal_type  }}{{ $usedMeals  = $usedMeals  | append . }}{{ end }}
+  {{ with .Params.food_genre }}{{ $usedGenres = $usedGenres | append . }}{{ end }}
+  {{ with .Params.city       }}{{ $usedCities = $usedCities | append . }}{{ end }}
+{{ end }}
+{{ $usedMeals  = $usedMeals  | uniq }}
+{{ $usedGenres = $usedGenres | uniq }}
+{{ $usedCities = $usedCities | uniq }}
+
 <div class="page-header">
   <h1 class="page-title">{{ .Title }}</h1>
   {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
 </div>
 
-<ul class="post-list">
-  {{ range .Pages }}
-  <li class="post-item">
-    <a href="{{ .RelPermalink }}" class="post-row">
-      {{ with .Params.image }}
-      <div class="post-row-img" style="background-image: url('{{ . }}')"></div>
-      {{ else }}
-      <div class="post-row-img post-row-img--empty"></div>
+<div x-data="{ meal: '', genre: '', city: '' }">
+
+  {{/* Filter bar — only render groups that have values */}}
+  {{ if or $usedMeals $usedGenres $usedCities }}
+  <div class="filter-bar">
+    {{ if $usedCities }}
+    <div class="filter-group">
+      <span class="filter-label">City</span>
+      {{ range $usedCities }}
+      <button class="filter-btn" :class="{ 'is-active': city === '{{ . }}' }" @click="city = city === '{{ . }}' ? '' : '{{ . }}'">{{ . }}</button>
       {{ end }}
-      <div class="post-row-body">
-        <h2 class="post-item-title">{{ .Title }}</h2>
-        <div class="post-meta">
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-          {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
-        </div>
-        {{ with .Params.description }}<p class="post-summary">{{ . }}</p>{{ end }}
-      </div>
-    </a>
-  </li>
-  {{ else }}
-  <li><p class="no-posts">No posts found.</p></li>
+    </div>
+    {{ end }}
+    {{ if $usedMeals }}
+    <div class="filter-group">
+      <span class="filter-label">Meal</span>
+      {{ range $mealTypes }}{{ if in $usedMeals . }}
+      <button class="filter-btn" :class="{ 'is-active': meal === '{{ . }}' }" @click="meal = meal === '{{ . }}' ? '' : '{{ . }}'">{{ . }}</button>
+      {{ end }}{{ end }}
+    </div>
+    {{ end }}
+    {{ if $usedGenres }}
+    <div class="filter-group">
+      <span class="filter-label">Cuisine</span>
+      {{ range $genres }}{{ if in $usedGenres . }}
+      <button class="filter-btn" :class="{ 'is-active': genre === '{{ . }}' }" @click="genre = genre === '{{ . }}' ? '' : '{{ . }}'">{{ . }}</button>
+      {{ end }}{{ end }}
+    </div>
+    {{ end }}
+  </div>
   {{ end }}
-</ul>
+
+  <ul class="post-list">
+    {{ range .Pages }}
+    <li class="post-item"
+      x-show="
+        (meal  === '' || meal  === '{{ .Params.meal_type  }}') &&
+        (genre === '' || genre === '{{ .Params.food_genre }}') &&
+        (city  === '' || city  === '{{ .Params.city       }}')
+      ">
+      <a href="{{ .RelPermalink }}" class="post-row">
+        {{ with .Params.image }}
+        <div class="post-row-img" style="background-image: url('{{ . }}')"></div>
+        {{ else }}
+        <div class="post-row-img post-row-img--empty"></div>
+        {{ end }}
+        <div class="post-row-body">
+          <h2 class="post-item-title">{{ .Title }}</h2>
+          <div class="post-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ with .Params.location }}<span class="post-location">📍 <em>{{ . }}</em></span>{{ end }}
+          </div>
+          {{ if or .Params.meal_type .Params.food_genre .Params.city }}
+          <div class="post-tags">
+            {{ with .Params.city }}<span class="tag">{{ . }}</span>{{ end }}
+            {{ with .Params.meal_type }}<span class="tag">{{ . }}</span>{{ end }}
+            {{ with .Params.food_genre }}<span class="tag">{{ . }}</span>{{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </a>
+    </li>
+    {{ else }}
+    <li><p class="no-posts">No posts found.</p></li>
+    {{ end }}
+  </ul>
+
+</div>
 {{ end }}
