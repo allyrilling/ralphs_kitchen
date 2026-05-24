@@ -136,8 +136,8 @@ main {
    ===================================================== */
 .site-header {
   border-bottom: 1px solid var(--border);
-  padding: var(--space-lg) 0;
-  margin-bottom: var(--space-xl);
+  padding: var(--space-md) 0;
+  margin-bottom: var(--space-lg);
 }
 
 .site-header .site-wrapper {
@@ -349,7 +349,7 @@ pre code {
    Post Index
    ===================================================== */
 .page-header {
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   max-width: var(--reading-width);
 }
 
@@ -691,8 +691,8 @@ pre code {
 }
 
 .home-welcome {
-  margin-bottom: var(--space-xl);
-  padding-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
   border-bottom: 1px solid var(--border);
   max-width: var(--reading-width);
 }
