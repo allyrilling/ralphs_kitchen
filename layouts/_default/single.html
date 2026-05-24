@@ -5,6 +5,7 @@
     <div class="post-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
       {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
+      {{ with .Params.location }}<span class="post-location">📍 <em>{{ . }}</em></span>{{ end }}
     </div>
   </header>
 

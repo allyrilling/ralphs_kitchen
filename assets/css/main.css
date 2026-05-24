@@ -570,6 +570,8 @@ pre code {
   border-top: 1px solid var(--border);
 }
 
+.post-location { font-style: normal; }
+
 .post-tags-label {
   font-size: 0.85rem;
   color: var(--text-muted);
