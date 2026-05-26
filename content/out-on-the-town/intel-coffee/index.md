@@ -1,6 +1,7 @@
 ---
 title: "Intel Coffee"
 date: 2026-04-10
+draft: false
 location: "Intel Coffee, Milwaukee WI"
 city: "Milwaukee"
 description: "Best latte in the city, full stop."

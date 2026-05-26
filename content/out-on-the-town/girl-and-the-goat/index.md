@@ -1,6 +1,7 @@
 ---
 title: "Girl & the Goat"
 date: 2026-05-15
+draft: false
 location: "Girl & the Goat, Chicago IL"
 city: "Chicago"
 description: "Stephanie Izard's flagship is still firing on all cylinders."

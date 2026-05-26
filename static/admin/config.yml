@@ -26,9 +26,41 @@ collections:
     folder: "content/dinner-party"
     create: true
     path: "{{slug}}/index"
+    filter:
+      field: draft
+      value: false
     fields:
       - { label: "Title",       name: "title",       widget: "string" }
       - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Hide from site", name: "draft", widget: "boolean", default: false, required: false, hint: "When on, this post won't appear on the live site" }
+      - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
+      - { label: "Description", name: "description", widget: "string",   required: false }
+      - { label: "Cover Image", name: "image",       widget: "image",    required: false }
+      - label: "Meal Type"
+        name: "meal_type"
+        widget: "select"
+        required: false
+        options: ["Breakfast", "Brunch", "Lunch", "Snack", "Dinner", "Dessert", "Other"]
+      - label: "Food Genre"
+        name: "food_genre"
+        widget: "select"
+        required: false
+        options: ["American", "Cafe", "Italian", "Mexican", "Japanese", "Chinese", "Thai", "Indian", "French", "Mediterranean", "Greek", "Korean", "Vietnamese", "Spanish", "Middle Eastern", "Other"]
+      - { label: "Body",        name: "body",        widget: "markdown" }
+
+  - name: "dinner-party-drafts"
+    label: "Dinner Party — Drafts"
+    folder: "content/dinner-party"
+    create: true
+    path: "{{slug}}/index"
+    filter:
+      field: draft
+      value: true
+    fields:
+      - { label: "Title",       name: "title",       widget: "string" }
+      - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Hide from site", name: "draft", widget: "boolean", default: true, required: false, hint: "When on, this post won't appear on the live site" }
+      - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
       - { label: "Description", name: "description", widget: "string",   required: false }
       - { label: "Cover Image", name: "image",       widget: "image",    required: false }
       - label: "Meal Type"
@@ -48,9 +80,43 @@ collections:
     folder: "content/out-on-the-town"
     create: true
     path: "{{slug}}/index"
+    filter:
+      field: draft
+      value: false
     fields:
       - { label: "Title",       name: "title",       widget: "string" }
       - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Hide from site", name: "draft", widget: "boolean", default: false, required: false, hint: "When on, this post won't appear on the live site" }
+      - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
+      - { label: "Location",    name: "location",    widget: "string",   hint: "e.g. Carmelina's, Boston MA" }
+      - { label: "City",        name: "city",        widget: "string",   hint: "e.g. Boston, Chicago" }
+      - { label: "Description", name: "description", widget: "string",   required: false }
+      - { label: "Cover Image", name: "image",       widget: "image",    required: false }
+      - label: "Meal Type"
+        name: "meal_type"
+        widget: "select"
+        required: false
+        options: ["Breakfast", "Brunch", "Lunch", "Snack", "Dinner", "Dessert", "Other"]
+      - label: "Food Genre"
+        name: "food_genre"
+        widget: "select"
+        required: false
+        options: ["American", "Cafe", "Italian", "Mexican", "Japanese", "Chinese", "Thai", "Indian", "French", "Mediterranean", "Greek", "Korean", "Vietnamese", "Spanish", "Middle Eastern", "Other"]
+      - { label: "Body",        name: "body",        widget: "markdown" }
+
+  - name: "out-on-the-town-drafts"
+    label: "Out on the Town — Drafts"
+    folder: "content/out-on-the-town"
+    create: true
+    path: "{{slug}}/index"
+    filter:
+      field: draft
+      value: true
+    fields:
+      - { label: "Title",       name: "title",       widget: "string" }
+      - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Hide from site", name: "draft", widget: "boolean", default: true, required: false, hint: "When on, this post won't appear on the live site" }
+      - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
       - { label: "Location",    name: "location",    widget: "string",   hint: "e.g. Carmelina's, Boston MA" }
       - { label: "City",        name: "city",        widget: "string",   hint: "e.g. Boston, Chicago" }
       - { label: "Description", name: "description", widget: "string",   required: false }

@@ -1,6 +1,7 @@
 ---
 title: "Sunday Frittata"
 date: 2026-05-10
+draft: false
 description: "A simple egg dish that cleans out the fridge."
 meal_type: "Breakfast"
 food_genre: "American"

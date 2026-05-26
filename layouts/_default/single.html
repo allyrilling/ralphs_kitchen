@@ -16,6 +16,12 @@
     {{ end }}
   </header>
 
+  {{ with .Params.image }}
+  <div class="post-cover">
+    <img src="{{ . }}" alt="" class="post-cover-img">
+  </div>
+  {{ end }}
+
   {{ if and .TableOfContents (gt (len .TableOfContents) 100) }}
   <nav class="toc" aria-label="Table of contents">
     <p class="toc-title">Contents</p>

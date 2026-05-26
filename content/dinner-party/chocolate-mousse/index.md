@@ -1,6 +1,7 @@
 ---
 title: "Chocolate Mousse"
 date: 2026-03-02
+draft: false
 description: "The Jacques Pépin recipe. Don't change a thing."
 meal_type: "Dessert"
 food_genre: "French"

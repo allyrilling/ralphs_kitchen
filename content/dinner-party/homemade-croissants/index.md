@@ -1,6 +1,7 @@
 ---
 title: "Homemade Croissants"
 date: 2026-04-20
+draft: false
 description: "A two-day project that was absolutely worth it."
 meal_type: "Brunch"
 food_genre: "French"
