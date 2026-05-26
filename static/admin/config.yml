@@ -29,9 +29,11 @@ collections:
     filter:
       field: draft
       value: false
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [commit_date, date, title]
     fields:
       - { label: "Title",       name: "title",       widget: "string" }
-      - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
       - { label: "Hide from site", name: "draft", widget: "boolean", default: false, required: false, hint: "When on, this post won't appear on the live site" }
       - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
       - { label: "Description", name: "description", widget: "string",   required: false }
@@ -56,9 +58,11 @@ collections:
     filter:
       field: draft
       value: true
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [commit_date, date, title]
     fields:
       - { label: "Title",       name: "title",       widget: "string" }
-      - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
       - { label: "Hide from site", name: "draft", widget: "boolean", default: true, required: false, hint: "When on, this post won't appear on the live site" }
       - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
       - { label: "Description", name: "description", widget: "string",   required: false }
@@ -83,13 +87,17 @@ collections:
     filter:
       field: draft
       value: false
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [commit_date, date, title]
     fields:
       - { label: "Title",       name: "title",       widget: "string" }
-      - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
       - { label: "Hide from site", name: "draft", widget: "boolean", default: false, required: false, hint: "When on, this post won't appear on the live site" }
       - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
       - { label: "Location",    name: "location",    widget: "string",   hint: "e.g. Carmelina's, Boston MA" }
       - { label: "City",        name: "city",        widget: "string",   hint: "e.g. Boston, Chicago" }
+      - { label: "Latitude",    name: "lat",         widget: "string",   required: false, hint: "Auto-filled from location" }
+      - { label: "Longitude",   name: "lng",         widget: "string",   required: false, hint: "Auto-filled from location" }
       - { label: "Description", name: "description", widget: "string",   required: false }
       - { label: "Cover Image", name: "image",       widget: "image",    required: false }
       - label: "Meal Type"
@@ -112,13 +120,17 @@ collections:
     filter:
       field: draft
       value: true
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [commit_date, date, title]
     fields:
       - { label: "Title",       name: "title",       widget: "string" }
-      - { label: "Date",        name: "date",        widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
       - { label: "Hide from site", name: "draft", widget: "boolean", default: true, required: false, hint: "When on, this post won't appear on the live site" }
       - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
       - { label: "Location",    name: "location",    widget: "string",   hint: "e.g. Carmelina's, Boston MA" }
       - { label: "City",        name: "city",        widget: "string",   hint: "e.g. Boston, Chicago" }
+      - { label: "Latitude",    name: "lat",         widget: "string",   required: false, hint: "Auto-filled from location" }
+      - { label: "Longitude",   name: "lng",         widget: "string",   required: false, hint: "Auto-filled from location" }
       - { label: "Description", name: "description", widget: "string",   required: false }
       - { label: "Cover Image", name: "image",       widget: "image",    required: false }
       - label: "Meal Type"

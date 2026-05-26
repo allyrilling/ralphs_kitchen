@@ -4,6 +4,8 @@ date: 2026-04-28
 draft: false
 location: "Via Carota, New York NY"
 city: "New York"
+lat: 40.7330983
+lng: -74.003691
 description: "The cacio e pepe is the best in the city. Possibly ever."
 meal_type: "Dinner"
 food_genre: "Italian"
