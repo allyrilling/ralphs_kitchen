@@ -12,5 +12,10 @@ food_genre: Italian
 ---
 **Great mid-ride stop!**
 
-
 ![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1779628296/10BDAF8A-8FAE-4C18-9266-0121C6E86606_4_5005_c_kwkjjo.jpg)
+
+Their pie is also really good.
+
+![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1786541099/IMG_8105_dj23yk.jpg)
+
+Great place to refuel!
