@@ -16,7 +16,9 @@ Every year we do an annual grill extravaganza to celebrate the summer. This year
 
 \- Ice cream, caramel, and grilled pineapple for desert
 
-![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1786540417/IMG_0340_rgvmfk.jpg)
+![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1786540417/IMG_0340_rgvmfk.jpg "Full plate!")
+
+![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1786540422/IMG_8352_bzm9zm.jpg "Grilled cuc and watermelon salad")
 
 This was the best grill extravaganza yet and there may be an additional pop up coming later this summer. Hold onto your hats folks! 
 
