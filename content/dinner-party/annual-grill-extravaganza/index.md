@@ -20,6 +20,12 @@ Every year we do an annual grill extravaganza to celebrate the summer. This year
 
 ![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1786540422/IMG_8352_bzm9zm.jpg "Grilled cuc and watermelon salad")
 
+Also made for great leftovers.
+
+![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1786549376/IMG_8368_dci4za.jpg)
+
+
+
 This was the best grill extravaganza yet and there may be an additional pop up coming later this summer. Hold onto your hats folks! 
 
 \- Love Ralph
