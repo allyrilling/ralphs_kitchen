@@ -15,3 +15,5 @@ These waffles might just be the best round these parts. And the other food is so
 And the avocado toast was fantastic.
 
 ![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1786542837/IMG_8307_gznrvn.jpg)
+
+\- Love Ralph
