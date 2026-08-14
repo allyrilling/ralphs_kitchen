@@ -10,4 +10,6 @@ image: https://res.cloudinary.com/dgdmgrse0/image/upload/v1786589299/IMG_8380_pw
 meal_type: Lunch
 food_genre: American
 ---
-Body
+Surprisingly good veggie burger! Sweet potato fries were also quite good. 
+
+![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1786589300/IMG_8381_o1k96t.jpg)
