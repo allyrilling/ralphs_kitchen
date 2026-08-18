@@ -14,6 +14,8 @@ The Wild Fig offers Aspens best dining experience. The food is delicious, the at
 
 Their restaurant is located in the heart of downtown and during the Aspen music schools summer session you can catch live music being played in the town square by the students. We were lucky to hear a group of brass players during our excursion.
 
+![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1787094283/IMG_8552_d21cad.jpg)
+
 Of course the main attraction was the food. We ordered gazpacho and the fig salad as appetizers. The gazpacho had a bit of avocado and some spice that made it exceptional. 
 
 ![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1787094283/IMG_8553_au8lhx.jpg)
