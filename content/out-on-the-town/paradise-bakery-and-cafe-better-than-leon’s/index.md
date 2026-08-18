@@ -14,4 +14,6 @@ The Natural pistachio flavor is ground breaking. It tastes like pistachio yet is
 
 Their sorbet was fantastic as well. We also tried their mango, chocolate peanut butter, and blackberry lavender flavors.
 
+Any stop in Aspen should include a visit to Paradise for ice cream. - Love Ralph
+
 ![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1787095315/IMG_8625_yqbuvl.jpg)
