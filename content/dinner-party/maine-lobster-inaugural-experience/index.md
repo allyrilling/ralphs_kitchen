@@ -1,7 +1,7 @@
 ---
-title: "Maine Lobster Inaugural Experience "
+title: Maine Lobster Inaugural Experience - Courtesy Two Magnificent Hosts
 date: 2026-03-06
-draft: true
+draft: false
 image: https://res.cloudinary.com/dgdmgrse0/image/upload/v1786708802/IMG_7849_oudyhu.jpg
 meal_type: Dinner
 food_genre: Other
