@@ -1,5 +1,5 @@
 ---
-title: "Ralph's Risotto - Celery and Lemon "
+title: "Ralph's Risotto Journal - Celery and Lemon "
 date: 2026-09-04
 draft: false
 image: https://res.cloudinary.com/dgdmgrse0/image/upload/v1788660139/IMG_1961_w5vbbx.jpg
