@@ -10,6 +10,6 @@ Ralph has a risotto problem. He's tried many recipes at this point in his culina
 
 ![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1788660132/IMG_1954_cum3g8.jpg)
 
-Salmon baked with lemon and paper was the main protein for the meal along with a small side of sheet pan veggies. Ralph loves fresh produce and now is a great time of year to find some at your local grocer or farmers market. - Love Ralph
+Salmon baked with lemon and pepper was the main protein for the meal along with a small side of sheet pan veggies. Ralph loves fresh produce and now is a great time of year to find some at your local grocer or farmers market. - Love Ralph
 
 ![](https://res.cloudinary.com/dgdmgrse0/image/upload/v1788660121/IMG_1957_hrylea.jpg)
