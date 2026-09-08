@@ -6,7 +6,8 @@
   {
     "title":   {{ $p.Title | jsonify }},
     "url":     {{ $p.RelPermalink | jsonify }},
-    "summary": {{ with $p.Params.description }}{{ . | jsonify }}{{ else }}{{ $p.Summary | plainify | jsonify }}{{ end }}
+    "image":   {{ (default "" $p.Params.image) | jsonify }},
+    "summary": {{ with $p.Params.description }}{{ . | htmlUnescape | jsonify }}{{ else }}{{ $p.Summary | plainify | htmlUnescape | jsonify }}{{ end }}
   }
   {{- end -}}
 ]

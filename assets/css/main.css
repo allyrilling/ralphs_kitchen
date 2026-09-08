@@ -641,14 +641,10 @@ pre code {
   font-size: 1.1rem;
   margin-bottom: var(--space-xs);
   margin-top: 0;
-}
-
-.search-result-title a {
   color: var(--heading);
-  text-decoration: none;
 }
 
-.search-result-title a:hover {
+.search-result-item .post-row:hover .search-result-title {
   color: var(--accent);
 }
 

@@ -1,14 +1,29 @@
 (function () {
   let leafletMap = null;
+  let boundLocationInput = null;
 
   function findInputByLabel(text) {
     for (const label of document.querySelectorAll('label')) {
-      if (label.textContent.trim().toLowerCase().includes(text.toLowerCase())) {
-        const id = label.getAttribute('for');
-        const input = (id && document.getElementById(id)) ||
-          label.closest('div')?.querySelector('input');
-        if (input) return input;
+      if (!label.textContent.trim().toLowerCase().startsWith(text.toLowerCase())) continue;
+
+      const id = label.getAttribute('for');
+      if (id) {
+        const byId = document.getElementById(id);
+        if (byId) return byId;
       }
+
+      // Walk forward from the label in document order and grab the next
+      // input before hitting another label — more resilient to whatever
+      // wrapper depth Decap happens to render than a fixed closest('div').
+      const all = Array.from(document.querySelectorAll('label, input'));
+      const idx = all.indexOf(label);
+      for (let i = idx + 1; i < all.length; i++) {
+        if (all[i].tagName === 'LABEL') break;
+        if (all[i].tagName === 'INPUT') return all[i];
+      }
+
+      const fallback = label.closest('div')?.querySelector('input');
+      if (fallback) return fallback;
     }
     return null;
   }
@@ -21,7 +36,7 @@
     input.dispatchEvent(new Event('input', { bubbles: true }));
   }
 
-  async function geocode(query) {
+  async function geocodeOnce(query) {
     const url = 'https://nominatim.openstreetmap.org/search?q=' +
       encodeURIComponent(query) + '&format=json&limit=1&addressdetails=1';
     const res = await fetch(url, { headers: { 'User-Agent': 'ralphs-kitchen/1.0' } });
@@ -30,6 +45,22 @@
     const addr = data[0].address || {};
     const city = addr.city || addr.town || addr.village || addr.municipality || null;
     return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon), city };
+  }
+
+  // Nominatim only matches things that exist as named points in
+  // OpenStreetMap — most small restaurants/businesses aren't tagged there,
+  // so "Business Name, City, ST" often comes back empty even though the
+  // business is real. Fall back to progressively broader queries (dropping
+  // the leading segment each time) so we at least land on city-level
+  // coordinates instead of failing outright.
+  async function geocode(query) {
+    const segments = query.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+    for (let i = 0; i < segments.length; i++) {
+      const attempt = segments.slice(i).join(', ');
+      const result = await geocodeOnce(attempt);
+      if (result) return Object.assign({ approximate: i > 0 }, result);
+    }
+    return null;
   }
 
   function showMap(lat, lng) {
@@ -68,26 +99,47 @@
     }, 100);
   }
 
+  function teardown() {
+    const existing = document.getElementById('rk-geocode-btn');
+    if (existing) existing.remove();
+    const map = document.getElementById('rk-map');
+    if (map) map.remove();
+    if (leafletMap) { leafletMap.remove(); leafletMap = null; }
+    boundLocationInput = null;
+  }
+
   function tryInject() {
     const existing = document.getElementById('rk-geocode-btn');
-    if (existing && !document.body.contains(existing)) {
-      existing.remove();
-      const map = document.getElementById('rk-map');
-      if (map) { map.remove(); }
-      if (leafletMap) { leafletMap.remove(); leafletMap = null; }
-    }
-    if (document.getElementById('rk-geocode-btn')) {
-      // Already injected — check if we should show map for existing coords
-      const latInput = findInputByLabel('Latitude');
-      const lngInput = findInputByLabel('Longitude');
-      const lat = parseFloat(latInput?.value);
-      const lng = parseFloat(lngInput?.value);
-      if (lat && lng && !document.getElementById('rk-map')) showMap(lat, lng);
-      return;
+    const currentLocationInput = findInputByLabel('Location');
+
+    if (existing) {
+      // Stale if its container left the DOM, or the entry underneath
+      // switched to a different Location field (e.g. navigated to another
+      // entry without a churn-heavy enough DOM change to reset us).
+      const stale = !document.body.contains(existing) ||
+        !document.body.contains(boundLocationInput) ||
+        (currentLocationInput && currentLocationInput !== boundLocationInput);
+      if (stale) {
+        teardown();
+      } else {
+        // Already injected and still valid — check if we should show the
+        // map for existing coords.
+        const latInput = findInputByLabel('Latitude');
+        const lngInput = findInputByLabel('Longitude');
+        const lat = parseFloat(latInput?.value);
+        const lng = parseFloat(lngInput?.value);
+        if (lat && lng && !document.getElementById('rk-map')) showMap(lat, lng);
+        return;
+      }
+    } else if (boundLocationInput && !document.body.contains(boundLocationInput)) {
+      // No button, but we still think we're bound to a since-removed field.
+      boundLocationInput = null;
     }
 
-    const locationInput = findInputByLabel('Location');
+    const locationInput = currentLocationInput;
     if (!locationInput) return;
+
+    boundLocationInput = locationInput;
 
     const btn = document.createElement('button');
     btn.id = 'rk-geocode-btn';
@@ -120,7 +172,7 @@
           if (lngInput) setReactValue(lngInput, coords.lng);
           if (cityInput && coords.city) setReactValue(cityInput, coords.city);
           showMap(coords.lat, coords.lng);
-          btn.textContent = '✓ Geocoded';
+          btn.textContent = coords.approximate ? '✓ Geocoded (approx.)' : '✓ Geocoded';
         } else {
           btn.textContent = '✗ Not found';
         }
@@ -146,6 +198,13 @@
     timer = setTimeout(tryInject, 200);
   });
 
-  const init = () => observer.observe(document.body, { childList: true, subtree: true });
+  const init = () => {
+    observer.observe(document.body, { childList: true, subtree: true });
+    // Belt-and-suspenders: the CMS's editor can occasionally finish
+    // rendering a form (including the Location field) without firing a
+    // childList mutation the debounce above catches in time — a periodic
+    // check makes sure the button still shows up in that case.
+    setInterval(tryInject, 750);
+  };
   document.body ? init() : window.addEventListener('DOMContentLoaded', init);
 })();

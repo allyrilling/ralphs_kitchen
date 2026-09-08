@@ -18,6 +18,7 @@
 <div id="search-results" aria-live="polite"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" crossorigin="anonymous"></script>
-<script>var searchIndexUrl = {{ "/index.json" | absURL | jsonify }};</script>
-<script src="{{ "/js/search.js" | relURL }}"></script>
+<script>var searchIndexUrl = {{ "index.json" | absURL }};</script>
+{{- $searchJS := resources.Get "js/search.js" | minify | fingerprint }}
+<script src="{{ $searchJS.RelPermalink }}" integrity="{{ $searchJS.Data.Integrity }}"></script>
 {{ end }}

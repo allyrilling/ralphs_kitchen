@@ -35,10 +35,19 @@
     hits.forEach(function (hit) {
       var p = hit.item;
       html += '<div class="search-result-item">';
-      html += '<h2 class="search-result-title"><a href="' + p.url + '">' + escapeHtml(p.title) + '</a></h2>';
+      html += '<a href="' + p.url + '" class="post-row">';
+      if (p.image) {
+        html += '<div class="post-row-img" style="background-image: url(\'' + escapeHtml(p.image) + '\')"></div>';
+      } else {
+        html += '<div class="post-row-img post-row-img--empty"></div>';
+      }
+      html += '<div class="post-row-body">';
+      html += '<h2 class="search-result-title">' + escapeHtml(p.title) + '</h2>';
       if (p.summary) {
         html += '<p class="search-result-summary">' + escapeHtml(p.summary) + '</p>';
       }
+      html += '</div>';
+      html += '</a>';
       html += '</div>';
     });
     results.innerHTML = html;
