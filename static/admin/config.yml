@@ -38,6 +38,16 @@ collections:
       - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
       - { label: "Description", name: "description", widget: "string",   required: false }
       - { label: "Cover Image", name: "image",       widget: "image",    required: false }
+      - { label: "Gallery",      name: "gallery",     widget: "image",    required: false, media_library: { config: { multiple: true } }, hint: "Select several photos at once in Cloudinary (click multiple, holding Cmd/Ctrl) to add them all as a gallery" }
+      - label: "Gallery Layout"
+        name: "gallery_layout"
+        widget: "select"
+        required: false
+        default: "stacked"
+        hint: "How the Gallery photos are displayed on the post"
+        options:
+          - { label: "Large (stacked, one per row)", value: "stacked" }
+          - { label: "Grid (thumbnails)", value: "grid" }
       - label: "Meal Type"
         name: "meal_type"
         widget: "select"
@@ -67,6 +77,16 @@ collections:
       - { label: "Slug",        name: "slug",        widget: "string",   required: false, hint: "Custom URL slug (leave blank to use title)" }
       - { label: "Description", name: "description", widget: "string",   required: false }
       - { label: "Cover Image", name: "image",       widget: "image",    required: false }
+      - { label: "Gallery",      name: "gallery",     widget: "image",    required: false, media_library: { config: { multiple: true } }, hint: "Select several photos at once in Cloudinary (click multiple, holding Cmd/Ctrl) to add them all as a gallery" }
+      - label: "Gallery Layout"
+        name: "gallery_layout"
+        widget: "select"
+        required: false
+        default: "stacked"
+        hint: "How the Gallery photos are displayed on the post"
+        options:
+          - { label: "Large (stacked, one per row)", value: "stacked" }
+          - { label: "Grid (thumbnails)", value: "grid" }
       - label: "Meal Type"
         name: "meal_type"
         widget: "select"
@@ -100,6 +120,16 @@ collections:
       - { label: "Longitude",   name: "lng",         widget: "string",   required: false, hint: "Auto-filled from location" }
       - { label: "Description", name: "description", widget: "string",   required: false }
       - { label: "Cover Image", name: "image",       widget: "image",    required: false }
+      - { label: "Gallery",      name: "gallery",     widget: "image",    required: false, media_library: { config: { multiple: true } }, hint: "Select several photos at once in Cloudinary (click multiple, holding Cmd/Ctrl) to add them all as a gallery" }
+      - label: "Gallery Layout"
+        name: "gallery_layout"
+        widget: "select"
+        required: false
+        default: "stacked"
+        hint: "How the Gallery photos are displayed on the post"
+        options:
+          - { label: "Large (stacked, one per row)", value: "stacked" }
+          - { label: "Grid (thumbnails)", value: "grid" }
       - label: "Meal Type"
         name: "meal_type"
         widget: "select"
@@ -133,6 +163,16 @@ collections:
       - { label: "Longitude",   name: "lng",         widget: "string",   required: false, hint: "Auto-filled from location" }
       - { label: "Description", name: "description", widget: "string",   required: false }
       - { label: "Cover Image", name: "image",       widget: "image",    required: false }
+      - { label: "Gallery",      name: "gallery",     widget: "image",    required: false, media_library: { config: { multiple: true } }, hint: "Select several photos at once in Cloudinary (click multiple, holding Cmd/Ctrl) to add them all as a gallery" }
+      - label: "Gallery Layout"
+        name: "gallery_layout"
+        widget: "select"
+        required: false
+        default: "stacked"
+        hint: "How the Gallery photos are displayed on the post"
+        options:
+          - { label: "Large (stacked, one per row)", value: "stacked" }
+          - { label: "Grid (thumbnails)", value: "grid" }
       - label: "Meal Type"
         name: "meal_type"
         widget: "select"

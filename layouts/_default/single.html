@@ -32,12 +32,25 @@
   <div class="post-content">
     {{ .Content }}
   </div>
+
+  {{ with .Params.gallery }}
+  {{ $images := . }}
+  {{ if not (reflect.IsSlice $images) }}{{ $images = slice $images }}{{ end }}
+  {{ if gt (len $images) 0 }}
+  {{ $layout := $.Params.gallery_layout | default "stacked" }}
+  <div class="post-gallery{{ if eq $layout "grid" }} post-gallery--grid{{ end }}">
+    {{ range $images }}
+    <img src="{{ . }}" alt="" loading="lazy">
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ end }}
 </article>
 
 <!-- medium-zoom for image lightbox -->
 <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+asM=" crossorigin="anonymous"></script>
 <script>
-  mediumZoom('.post-content img', {
+  mediumZoom('.post-content img, .post-gallery img', {
     margin: 24,
     background: getComputedStyle(document.documentElement).getPropertyValue('--bg')
   });
