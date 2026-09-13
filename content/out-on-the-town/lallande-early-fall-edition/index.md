@@ -1,7 +1,7 @@
 ---
 title: Lallande - Early Fall Edition
 date: 2026-09-12
-draft: true
+draft: false
 location: Lallande, Madison WI
 city: Madison
 lat: "43.0647286"
